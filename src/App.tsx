@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Button from "./components/Button.tsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const arrNmbr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    const arrCal = ["+", "-", "*", "/"];
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <>
+            <div className="p-4 border rounded-2xl w-[250px] border-blue-300 m-auto flex flex-col items-center justify-center">
+                <div className="w-full bg-gray-300 mb-4 p-4 rounded-lg">
+                    Text
+                </div>
+                <div className="grid grid-cols-3 mb-4 gap-2">
+                    {arrNmbr.map((number, key) => <Button key={key}>{number}</Button>)}
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                    {arrCal.map((btn, key) => <Button key={key}>{btn}</Button>)}
+                </div>
+            </div>
+        </>
+    );
 }
 
-export default App
+export default App;
